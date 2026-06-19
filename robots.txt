@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mckoinaits.github.io/appofficial-aiyouxi-com-cn/sitemap.xml
