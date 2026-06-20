@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>资料索引 · 中彩网</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background-color: #f9f7f4;
+            color: #2c2b28;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #b45f3a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #8a4427;
+        }
+
+        /* ── 深色头图 ── */
+        .hero {
+            background: linear-gradient(145deg, #1d1b17 0%, #2b2721 100%);
+            color: #e5dfd4;
+            padding: 4rem 1.5rem 3.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #f9f7f4;
+            clip-path: ellipse(70% 100% at 50% 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 380;
+            letter-spacing: 2px;
+            color: #f0eae1;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #b6aa98;
+            border-top: 1px solid #4f463b;
+            padding-top: 0.8rem;
+            margin-top: 0.3rem;
+            max-width: 480px;
+        }
+
+        /* ── 正文卡片区 ── */
+        .content-wrap {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 2.2rem 1.5rem 4rem;
+        }
+
+        .essay {
+            background: white;
+            border-radius: 24px;
+            padding: 2.8rem 2.2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03), 0 8px 28px rgba(0,0,0,0.02);
+        }
+
+        .essay h2 {
+            font-size: 1.6rem;
+            font-weight: 430;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: #2c2b28;
+            border-left: 4px solid #b45f3a;
+            padding-left: 1rem;
+        }
+
+        .essay p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        .essay .lead {
+            font-size: 1.08rem;
+            color: #4c443b;
+        }
+
+        .essay .block-quote {
+            background: #f2eee9;
+            padding: 1.6rem 2rem;
+            border-left: 6px solid #b45f3a;
+            border-radius: 0 18px 18px 0;
+            margin: 2rem 0 1.8rem;
+            font-style: normal;
+            color: #3e382f;
+            quotes: none;
+        }
+
+        .essay .block-quote::before {
+            content: "📌 ";
+            font-size: 1.2rem;
+        }
+
+        .essay .meta-note {
+            display: inline-block;
+            background: #e7e0d6;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #544b3f;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-mini {
+            margin-top: 2.4rem;
+            border-top: 1px solid #e2dbd2;
+            padding-top: 1.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #efebe6;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #3e382f;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            display: inline-block;
+            margin-right: 0.6rem;
+            color: #b45f3a;
+            transition: transform 0.2s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini details + details {
+            margin-top: 0.3rem;
+        }
+
+        .faq-mini .answer {
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            color: #4f463b;
+            font-size: 0.96rem;
+        }
+
+        .visit-line {
+            margin-top: 2.4rem;
+            padding: 1.2rem 1.5rem;
+            background: #f2eee9;
+            border-radius: 40px;
+            text-align: center;
+            font-size: 1.02rem;
+        }
+
+        .visit-line a {
+            font-weight: 500;
+        }
+
+        /* ── 响应式 ── */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .essay {
+                padding: 2rem 1.2rem;
+            }
+            .essay h2 {
+                font-size: 1.3rem;
+            }
+            .essay .block-quote {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 5rem 2rem 4rem;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        /* 隐藏种子字段 */
+        .seed-tag {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 深色头图 -->
+<header class="hero">
+    <h1>资料整理·信息索引</h1>
+    <div class="sub">从分散到有序 · 一份关于彩市数据的记录方式</div>
+</header>
+
+<main class="content-wrap">
+    <article class="essay">
+
+        <h2>为什么需要信息索引</h2>
+        <p class="lead">
+            在信息爆炸的年代，面对每日更新的开奖结果、历史走势、玩法说明，如何避免迷失在碎片里？一种可行的路径，是将资料视作“待整理的书架”——先分类，再索引，而后形成个人可回溯的知识节点。
+        </p>
+
+        <p>
+            以常见的数字彩为例，每一期的号码组合不仅是一串随机字符，也承载着统计意义上的冷热分布、奇偶比例、区间集中度。当你把数十期甚至上百期的数据排列在一起，趋势便不再是玄学，而是可观察的统计现象。此时，一个能够稳定查阅、对比、回溯的资料平台，就成为分析的前提。
+        </p>
+
+        <p>
+            <a href="https://cnzh-zhcw.com">中彩网</a>正是一个面向这种需求的资料集合地。它的定位更接近“公共参考台”——上面陈列着各彩种的基础信息、规则说明、历史数据，方便浏览者按需查阅，而不是给出预测或推荐。对于想要建立自己分析框架的人来说，这种“资料中立”的风格反而保留了更多独立判断的空间。
+        </p>
+
+        <div class="block-quote">
+            好的信息索引不是替你下结论，而是让你看见所有可用的砖石，然后自己决定砌成什么形状。
+        </div>
+
+        <p>
+            在实际使用中，从页面结构就能感受到一种“文档感”：分类条目清晰，每个彩种都单独成页，术语解释和规则部分用折叠面板收纳，没有冗余的弹窗或诱导按钮。这种组织方式，让查阅者可以快速定位到具体字段，而不必在广告或无关推荐里绕路。
+        </p>
+
+        <p>
+            一个被低估的细节是“归档”逻辑。很多同类站点只显示最新一期，历史数据要么隐藏很深，要么散落为图片。而通过<strong>中彩网</strong>的栏目结构，你可以按日期区间、按彩种类型往回翻查，看到完整的期次列表。对于做走势统计或长期记录的人来说，这相当于拥有了一个开放的数据仓库。
+        </p>
+
+        <!-- 迷你 FAQ 摘要 -->
+        <div class="faq-mini">
+            <details>
+                <summary>资料索引能解决哪些常见问题？</summary>
+                <div class="answer">减少重复搜索：当你需要核对某个规则或回顾近十期开奖，不用在多个标签页之间跳转。索引可以把高频信息固定在一个路径下。</div>
+            </details>
+            <details>
+                <summary>如何利用历史数据而不陷入过度解读？</summary>
+                <div class="answer">把数据当作参考系，而不是预言。比如观察出现频率，但不赋予它“下一次必然出现”的因果。索引的价值在于提供样本，而不是提供答案。</div>
+            </details>
+            <details>
+                <summary>为什么强调“克制”的信息呈现？</summary>
+                <div class="answer">克制意味着页面不会用闪烁、弹窗或紧迫感催促你点击。阅读者可以按自己的节奏浏览，这种安静的氛围更适合理性分析。</div>
+            </details>
+        </div>
+
+        <!-- 自然的访问句 -->
+        <div class="visit-line">
+            如果你也在寻找一份可以长期依赖的线上资料集，不妨试试 <a href="https://cnzh-zhcw.com">中彩网</a>，它提供了一条平实而完整的索引路径。
+        </div>
+
+        <!-- 种子标记（隐藏，仅标记） -->
+        <span class="seed-tag">bf76060ede24be01</span>
+
+    </article>
+</main>
+
+</body>
+</html>
