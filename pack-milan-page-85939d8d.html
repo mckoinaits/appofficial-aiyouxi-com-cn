@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米兰体育app · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f5f7;
+            color: #2c2e33;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .page-wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        /* ---- hero ---- */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e3e6ed;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1f232b;
+            margin-bottom: 0.7rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: #5b616f;
+            max-width: 680px;
+            margin: 0 auto 0.5rem auto;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #eef0f4;
+            color: #3b4050;
+            font-size: 0.85rem;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            margin-top: 0.6rem;
+            border: 1px solid #d5dae3;
+        }
+
+        /* ---- 卡片通用 ---- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e3e6ed;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1f232b;
+            margin-bottom: 0.9rem;
+            border-left: 4px solid #768297;
+            padding-left: 0.8rem;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #3d4250;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card ul li {
+            padding: 0.4rem 0 0.4rem 1.4rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.25rem;
+            color: #768297;
+            font-weight: 700;
+        }
+
+        /* ---- 说明区（全宽） ---- */
+        .explain-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.5rem;
+            border: 1px solid #e3e6ed;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2rem;
+        }
+
+        .explain-card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f232b;
+            margin-bottom: 1rem;
+        }
+
+        .explain-card p {
+            font-size: 0.95rem;
+            color: #3d4250;
+            margin-bottom: 0.8rem;
+        }
+
+        .explain-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .explain-card .link-sentence {
+            background: #f6f8fb;
+            padding: 0.8rem 1.2rem;
+            border-radius: 16px;
+            border: 1px solid #e8ebf1;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* ---- FAQ 摘要 ---- */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.4rem 1.8rem;
+            border: 1px solid #e3e6ed;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f232b;
+            margin-bottom: 0.4rem;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #4f5565;
+        }
+
+        /* ---- 底部链接 ---- */
+        .footer-links {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.6rem 2.5rem;
+            border: 1px solid #e3e6ed;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6a7182;
+        }
+
+        .footer-links a {
+            color: #2c3a5c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #768297;
+        }
+
+        .footer-links .sep {
+            margin: 0 0.6rem;
+            color: #c6ccd9;
+        }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 760px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.4rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .explain-card {
+                padding: 1.5rem 1.5rem;
+            }
+
+            .footer-links {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .card {
+                padding: 1.4rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 0.95rem;
+            }
+
+            .card h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero 区 -->
+    <section class="hero">
+        <h1>pack-milan.com · 站点说明</h1>
+        <p class="tagline">一份关于资源聚合与信息整理的简要介绍，帮助你快速了解这个站点的定位与内容方向。</p>
+        <span class="badge">专注工具与资讯 · 非官方平台</span>
+    </section>
+
+    <!-- 优势区：双卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <h2>内容定位</h2>
+            <ul>
+                <li>围绕运动与实用信息，整理可查阅的参考内容</li>
+                <li>不涉及财务、医疗等专业建议，仅做信息陈列</li>
+                <li>定期更新基础说明与常见问题摘要</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>使用场景</h2>
+            <ul>
+                <li>希望快速了解站点主题的访客</li>
+                <li>需要查阅基础说明和背景信息的用户</li>
+                <li>对运动类工具与资讯感兴趣的人群</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 说明区（全宽） -->
+    <section class="explain-card">
+        <h2>站点介绍与可信说明</h2>
+        <p>pack-milan.com 是一个以整理和索引为主的信息页面。站内内容聚焦于工具类介绍及基础运动类资讯，所有描述均来自公开可查的资料与客观整理，不包含任何形式的收益承诺或诱导性表述。</p>
+        <p>本站并非任何产品的官方站点，也不提供直接下载或安装包。资料仅供参考，使用者应通过正规渠道获取对应服务。如果你正在寻找与运动工具或资讯相关的内容，可以浏览本站整理的信息作为起点。</p>
+        <div class="link-sentence">
+            关于具体的应用信息，你可以参考 <a href="https://pack-milan.com">米兰体育app</a> 的页面说明，其中整理了基本功能与常见疑问。
+        </div>
+    </section>
+
+    <!-- FAQ 摘要（2列） -->
+    <div class="faq-grid">
+        <div class="faq-item">
+            <h3>网站提供下载吗？</h3>
+            <p>不提供。所有内容仅限信息展示，不托管任何可执行文件或安装包。</p>
+        </div>
+        <div class="faq-item">
+            <h3>内容多久更新一次？</h3>
+            <p>根据信息变动不定期整理，保持基础说明与问题摘要的时效性。</p>
+        </div>
+        <div class="faq-item">
+            <h3>是否与官方有关联？</h3>
+            <p>无直接关联。本站为独立的说明与索引页面，非官方运营。</p>
+        </div>
+        <div class="faq-item">
+            <h3>遇到疑问如何核实？</h3>
+            <p>建议通过应用内说明或官方渠道获取第一手信息。</p>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <a href="https://pack-milan.com">米兰体育app</a>
+        <span class="sep">|</span>
+        <span>信息整理 · 仅供参考</span>
+        <span class="sep">|</span>
+        <span>© 2025 pack-milan.com</span>
+    </div>
+
+</div>
+</body>
+</html>
