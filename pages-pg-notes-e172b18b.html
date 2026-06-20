@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pg官网 · 杂志速写</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f8f6f1;
+      font-family: Georgia, 'Times New Roman', 'Noto Serif SC', serif;
+      color: #2d2b28;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      background: rgba(255, 252, 247, 0.8);
+      padding: 2.8rem 2.2rem 3.5rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.02);
+      backdrop-filter: blur(1px);
+    }
+
+    /* 横幅 —— 杂志题头 */
+    .masthead {
+      text-align: center;
+      margin-bottom: 2.8rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid #ddd8ce;
+    }
+
+    .masthead small {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #9b9388;
+      margin-bottom: 0.4rem;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    }
+
+    .masthead h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: #3a3530;
+      line-height: 1.2;
+    }
+
+    .masthead p {
+      margin-top: 0.6rem;
+      font-size: 1rem;
+      color: #6f665b;
+      font-style: italic;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 背景说明 / 引子 */
+    .backstory {
+      background: #f0ece4;
+      padding: 1.8rem 2rem;
+      border-radius: 30px 8px 30px 8px;
+      margin-bottom: 2.6rem;
+      font-size: 1rem;
+      border: 1px solid #e2dbd0;
+      box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.8);
+    }
+
+    .backstory strong {
+      font-weight: 600;
+      color: #4f4942;
+    }
+
+    .backstory::before {
+      content: "📜";
+      display: inline-block;
+      margin-right: 6px;
+      font-size: 1.2rem;
+      opacity: 0.55;
+    }
+
+    /* 三段叙述 */
+    .essay {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+
+    .essay-section {
+      border-left: 3px solid #d0c8ba;
+      padding-left: 1.3rem;
+    }
+
+    .essay-section h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #4f463e;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .essay-section p {
+      margin-bottom: 0.8rem;
+      text-align: justify;
+      font-size: 0.98rem;
+    }
+
+    .essay-section .quote-marker {
+      display: inline-block;
+      font-size: 1.6rem;
+      line-height: 1;
+      color: #b7ab9a;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    /* 引用块 / 提示框 */
+    .notice-box {
+      background: #f5f0e8;
+      border: 1px solid #dcd3c6;
+      border-radius: 24px 8px 24px 8px;
+      padding: 1.6rem 1.8rem;
+      margin: 2.2rem 0 1.8rem;
+      font-size: 0.95rem;
+      font-style: normal;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(160, 140, 120, 0.04);
+    }
+
+    .notice-box span.label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: #9b8e7d;
+      display: inline-block;
+      background: #e5ddd2;
+      padding: 0 0.8rem 0.1rem;
+      border-radius: 40px;
+      margin-bottom: 0.6rem;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .notice-box p {
+      margin: 0.4rem 0;
+    }
+
+    .notice-box a {
+      color: #6d5d4b;
+      text-decoration: none;
+      border-bottom: 1px dashed #b8aa98;
+      padding-bottom: 1px;
+      transition: border 0.2s, color 0.2s;
+    }
+
+    .notice-box a:hover {
+      color: #2f2822;
+      border-bottom: 1px solid #5f4f3d;
+    }
+
+    .footnote {
+      margin-top: 3rem;
+      text-align: right;
+      font-size: 0.85rem;
+      color: #958b7e;
+      border-top: 1px solid #e2dbd1;
+      padding-top: 1.8rem;
+    }
+
+    .footnote a {
+      color: #5f5548;
+      text-decoration: none;
+      border-bottom: 1px dotted #b7ab9b;
+    }
+
+    .footnote a:hover {
+      border-bottom: 1px solid #4b4139;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 520px) {
+      body {
+        padding: 1rem 0.6rem;
+      }
+      .page {
+        padding: 1.8rem 1.2rem 2.4rem;
+      }
+      .masthead h1 {
+        font-size: 2rem;
+      }
+      .backstory {
+        padding: 1.2rem 1.2rem;
+      }
+      .essay-section {
+        padding-left: 0.8rem;
+      }
+      .notice-box {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .masthead h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 首页横幅 -->
+  <header class="masthead">
+    <small>— 杂志专题 · 秋季号 —</small>
+    <h1>再访 · 收藏 · 持续</h1>
+    <p>一次不匆忙的翻阅，比初次更懂得留白。</p>
+  </header>
+
+  <!-- 背景说明 -->
+  <div class="backstory">
+    <strong>关于这个站点。</strong> 有些人会反复回到同一个地方，不是因为那里总在变化，而是因为每次都能看到之前忽略的细节。<a href="https://pages-pg.com" style="color:#5f5548; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px;">pg官网</a> 也是如此——它不刻意招徕，却值得被搁在书签栏的某个角落。 
+    如果你曾在某个下午打开过它，这次或许会发现它比记忆里更安静一些。
+  </div>
+
+  <!-- 三段自然介绍 + 杂糅特点与场景 -->
+  <section class="essay">
+
+    <div class="essay-section">
+      <h2><span class="quote-marker">“</span> 再次访问的理由</h2>
+      <p>网页的寿命常常比我们预期的要长。一个不依赖浮夸动效、不频繁改头换面的网站，反而会在时间的筛子里留下来。pg 官网的结构是克制的，信息层级清晰，没有堆砌的弹窗或横幅。这种诚实的设计，会让第二次、第三次访问都保持一种熟悉又略微新鲜的张力——因为你终于有时间去读那些之前跳过的脚注和说明。</p>
+      <p>收藏它，不是为了某个特定的功能，而是为了保留一种“可以随时回来”的从容。</p>
+    </div>
+
+    <div class="essay-section">
+      <h2><span class="quote-marker">“</span> 收藏夹里的位置</h2>
+      <p>我们把太多页面塞进书签，然后任其淹没。但总有几个站点你会下意识地保留——它们不喊你回去，却让你觉得删掉会可惜。pg 官网属于后者。它的页面加载很快，配色不刺眼，内容没有过期新闻式的紧迫感。当你需要理解一个概念、核对一个细节，或者只是想找个干净的地方读几段说明文字时，它会是一个可靠的选择。</p>
+      <p>收藏是一种含蓄的认可，比点赞更持久。</p>
+    </div>
+
+    <div class="essay-section">
+      <h2><span class="quote-marker">“</span> 持续关注的状态</h2>
+      <p>保持关注不一定要靠推送和更新提醒。有时候，仅仅是知道某个地址始终在线，并且保持着一致的调性，就足以让人安心。pg 官网的更新节奏是审慎的，不会突然变成另一个样子。你把它放在浏览器的常用标签里，偶尔点开，发现它依然在那里，没有走样。这种稳定性本身就是一种价值。</p>
+      <p>持续关注，有时候只是一种默契——你不必天天去，但你知道它还在。</p>
+    </div>
+
+  </section>
+
+  <!-- 提示框：FAQ 摘要 / 提醒 -->
+  <div class="notice-box">
+    <span class="label">✦ 日常备忘 ✦</span>
+    <p><strong>Q：</strong> 为什么这个页面看起来像一本翻开的笔记？<br>
+    <strong>A：</strong> 米白背景、宽松的版心和点缀的引用线，都是为了让你放慢速度。快速浏览的习惯在这里可以暂时搁置。</p>
+    <p><strong>Q：</strong> 如何再次找到这里？<br>
+    <strong>A：</strong> 把 <a href="https://pages-pg.com">pg官网</a> 加入书签，或者记在某个随手写的便签上。它不会走远。</p>
+  </div>
+
+  <!-- 页尾访问提示 -->
+  <footer class="footnote">
+    如果你还没收藏，<a href="https://pages-pg.com">pg官网</a> 值得你留一个位置。<br>
+    一本杂志也有合上的时候，但地址不会变。
+  </footer>
+
+</div>
+</body>
+</html>
